@@ -701,7 +701,7 @@ body {
                     <li>データ入力・資料作成</li>
                     <li>翌営業日以内に返信</li>
                 </ul>
-                <a href="#contact" class="btn btn-yellow btn-full btn-sm">このプランで相談</a>
+               <a href="#contact" class="btn btn-yellow btn-full btn-sm" onclick="gtag('event','select_plan',{plan_name:'LIGHT'});">このプランで相談</a>
             </div>
             <div class="price-card pop">
                 <div class="price-tag">人気No.1</div>
@@ -715,7 +715,7 @@ body {
                     <li>当日返信対応（平日）</li>
                     <li>月次レポート提供</li>
                 </ul>
-                <a href="#contact" class="btn btn-coral btn-full btn-sm">このプランで相談</a>
+                <a href="#contact" class="btn btn-coral btn-full btn-sm" onclick="gtag('event','select_plan',{plan_name:'STANDARD'});">このプランで相談</a>
             </div>
             <div class="price-card">
                 <div class="price-plan">PREMIUM</div>
@@ -728,7 +728,7 @@ body {
                     <li>週次ミーティング</li>
                     <li>業務フロー設計支援</li>
                 </ul>
-                <a href="#contact" class="btn btn-yellow btn-full btn-sm">このプランで相談</a>
+                <a href="#contact" class="btn btn-yellow btn-full btn-sm" onclick="gtag('event','select_plan',{plan_name:'PREMIUM'});">このプランで相談</a>
             </div>
         </div>
         <p class="price-note">
@@ -777,7 +777,7 @@ body {
             <p class="section-lead">お気軽にご相談ください。専任スタッフが2営業日以内にご連絡します。</p>
         </div>
         <div class="form-box">
-            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" onsubmit="gtag('event','generate_lead',{form_name:'contact_form'});">
                 <div class="f-row">
                     <div class="f-group">
                         <label class="f-label">お名前<span class="req">必須</span></label>
