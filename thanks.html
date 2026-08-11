@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>送信完了｜Tasca（タスカ）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+    --yellow: #FFD23F; --coral: #FF6B6B; --teal: #38C7B8;
+    --purple: #7C5CFC; --ink: #2A2160; --ink-sub: #6B6494; --cream: #FFF9F0;
+    --font: 'Noto Sans JP', sans-serif;
+}
+body {
+    font-family: var(--font);
+    background: var(--cream);
+    color: var(--ink);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    line-height: 1.8;
+    position: relative;
+    overflow: hidden;
+}
+.blob { position: absolute; border-radius: 50%; opacity: .85; }
+.blob.b1 { width: 200px; height: 200px; background: var(--teal); top: -60px; left: -60px; }
+.blob.b2 { width: 150px; height: 150px; background: var(--pink,#FF7EC7); bottom: -40px; right: -40px; }
+.blob.b3 { width: 100px; height: 100px; background: var(--yellow); bottom: 10%; left: 6%; opacity:.6;}
+
+.card {
+    position: relative;
+    z-index: 2;
+    max-width: 480px;
+    width: 100%;
+    background: var(--white,#fff);
+    border: 3px solid var(--ink);
+    border-radius: 28px;
+    box-shadow: 8px 8px 0 var(--ink);
+    padding: 48px 40px;
+    text-align: center;
+}
+.icon {
+    width: 76px; height: 76px;
+    background: var(--yellow);
+    border: 3px solid var(--ink);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 34px;
+    margin: 0 auto 24px;
+}
+h1 { font-size: 24px; font-weight: 900; margin-bottom: 14px; }
+p { font-size: 14px; font-weight: 500; color: var(--ink-sub); margin-bottom: 8px; }
+.btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    margin-top: 28px;
+    padding: 14px 32px;
+    border-radius: 999px;
+    border: 3px solid var(--ink);
+    background: var(--coral); color: #fff;
+    font-weight: 900; font-size: 15px;
+    text-decoration: none;
+    box-shadow: 5px 5px 0 var(--ink);
+    transition: transform .12s, box-shadow .12s;
+}
+.btn:hover { transform: translate(-2px,-2px); box-shadow: 7px 7px 0 var(--ink); }
+</style>
+</head>
+<body>
+<div class="blob b1"></div>
+<div class="blob b2"></div>
+<div class="blob b3"></div>
+<div class="card">
+    <div class="icon">✅</div>
+    <h1>送信が完了しました</h1>
+    <p>お問い合わせいただき、ありがとうございます。</p>
+    <p>担当者より2営業日以内にご連絡いたします。今しばらくお待ちください。</p>
+    <a href="/" class="btn">トップページに戻る</a>
+</div>
+</body>
+</html>
