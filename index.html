@@ -777,7 +777,11 @@ body {
             <p class="section-lead">お気軽にご相談ください。専任スタッフが2営業日以内にご連絡します。</p>
         </div>
         <div class="form-box">
-            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" onsubmit="gtag('event','generate_lead',{form_name:'contact_form'});">
+            <form action="https://api.web3forms.com/submit" method="POST" onsubmit="gtag('event','generate_lead',{form_name:'contact_form'});">
+    <input type="hidden" name="access_key" value="38ab262d-ad45-4a91-a578-b9438bef9e7d">
+    <input type="hidden" name="subject" value="【Tasca】新規お問い合わせ">
+    <input type="hidden" name="from_name" value="Tasca 公式サイト">
+    <input type="hidden" name="redirect" value="https://web3forms.com/success">
                 <div class="f-row">
                     <div class="f-group">
                         <label class="f-label">お名前<span class="req">必須</span></label>
