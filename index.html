@@ -463,6 +463,50 @@ body {
     .info-table dt { width: 130px; padding: 14px 16px; font-size: 13px; }
     .info-table dd { padding: 14px 16px; }
 }
+
+/* ── FAQ ── */
+.faq-wrap { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+.faq-item { border: 3px solid var(--ink); border-radius: 18px; background: var(--white); box-shadow: 4px 4px 0 var(--ink); overflow: hidden; }
+.faq-q { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 18px 22px; background: none; border: none; font-family: var(--font); font-size: 15px; font-weight: 800; color: var(--ink); cursor: pointer; text-align: left; }
+.faq-icon { font-size: 22px; font-weight: 900; color: var(--purple); flex-shrink: 0; transition: transform .25s; line-height: 1; }
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+.faq-a { display: none; padding: 0 22px 18px; font-size: 14px; font-weight: 600; color: var(--ink-sub); line-height: 1.85; border-top: 2px dashed rgba(42,33,96,.2); margin-top: 0; padding-top: 14px; }
+.faq-item.open .faq-a { display: block; }
+
+/* ── スティッキーCTA（スマホのみ） ── */
+.sticky-cta { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 200; padding: 12px 16px; background: var(--white); border-top: 3px solid var(--ink); box-shadow: 0 -4px 0 var(--ink); }
+.sticky-cta a { display: block; text-align: center; background: var(--coral); color: var(--white); font-family: var(--font); font-size: 16px; font-weight: 900; padding: 14px; border-radius: 999px; border: 3px solid var(--ink); box-shadow: 4px 4px 0 var(--ink); text-decoration: none; }
+
+/* ── 特商法（スマホ対応カード式） ── */
+.legal-group { margin-bottom: 24px; }
+.legal-group-title { font-size: 13px; font-weight: 900; letter-spacing: .12em; color: var(--purple); background: rgba(124,92,252,.08); border: 2px solid var(--purple); border-radius: 10px; padding: 6px 14px; display: inline-block; margin-bottom: 12px; }
+.legal-card { background: var(--cream); border: 3px solid var(--ink); border-radius: 18px; box-shadow: 4px 4px 0 var(--ink); overflow: hidden; margin-bottom: 10px; }
+.legal-row { display: flex; flex-direction: column; padding: 14px 18px; border-bottom: 2px solid rgba(42,33,96,.12); }
+.legal-row:last-child { border-bottom: none; }
+.legal-dt { font-size: 12px; font-weight: 900; color: var(--purple); letter-spacing: .06em; margin-bottom: 4px; }
+.legal-dd { font-size: 14px; font-weight: 600; color: var(--ink); line-height: 1.75; }
+.legal-dd a { color: var(--purple); font-weight: 800; }
+
+/* ── フォーム改善 ── */
+.form-trust { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 24px; }
+.form-trust-item { display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: var(--ink-sub); }
+.form-trust-item .ico { font-size: 16px; }
+.form-required { font-size: 11px; font-weight: 900; color: var(--coral); margin-left: 5px; }
+.form-optional { font-size: 11px; font-weight: 700; color: var(--ink-sub); margin-left: 5px; background: #eee; padding: 1px 8px; border-radius: 100px; }
+
+/* ── CV向上：ヒーロー直下の信頼バッジ ── */
+.trust-strip { background: var(--ink); padding: 14px 0; border-top: 3px solid var(--ink); border-bottom: 3px solid var(--ink); }
+.trust-strip-inner { display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+.trust-item { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 800; color: var(--yellow); }
+.trust-item .ti-ico { font-size: 18px; }
+
+@media(max-width: 820px){
+  .sticky-cta { display: block; }
+  body { padding-bottom: 76px; }
+  .trust-strip-inner { gap: 16px; }
+  .trust-item { font-size: 13px; }
+  .form-trust { gap: 10px; }
+}
 </style>
 
     <!-- Google tag (gtag.js) -->
@@ -485,6 +529,7 @@ body {
             <li><a href="#service">サービス</a></li>
             <li><a href="#strength">強み</a></li>
             <li><a href="#compare">他社比較</a></li>
+				<li><a href="#faq">FAQ</a></li>
             <li><a href="#pricing">料金</a></li>
             <li><a href="#contact" class="btn btn-coral btn-sm">無料相談</a></li>
         </ul>
@@ -505,7 +550,7 @@ body {
             <span class="c-purple">あなたは経営に集中。</span>
         </h1>
         <p class="hero-sub">
-            メール対応もスケジュール調整も資料づくりも、プロのチームがまるっと代行。<br>
+            <strong>AI開発会社LYNOXのチーム</strong>がメール・議事録・スケジュール・資料づくりをまるっと代行。<br>
             月額固定で、必要なぶんだけ。すぐに頼れる右腕を、あなたに。
         </p>
         <div class="hero-cta">
@@ -537,6 +582,17 @@ body {
     </div>
 </div>
 
+
+<!-- 信頼バッジ -->
+<div class="trust-strip">
+  <div class="trust-strip-inner">
+    <div class="trust-item"><span class="ti-ico">🔒</span>秘密保持契約（NDA）締結</div>
+    <div class="trust-item"><span class="ti-ico">🤖</span>AI×人のハイブリッド対応</div>
+    <div class="trust-item"><span class="ti-ico">⚡</span>最短1週間で稼働開始</div>
+    <div class="trust-item"><span class="ti-ico">✅</span>初期費用ゼロ・月単位で解約可</div>
+  </div>
+</div>
+
 <!-- お悩み -->
 <section class="section problems">
     <div class="wrap">
@@ -546,9 +602,9 @@ body {
             <p class="section-lead">経営者や個人事業主が抱える、よくあるお悩みです。</p>
         </div>
         <div class="problem-grid">
-            <div class="problem-card"><div class="problem-emoji">📩</div><p class="problem-text">メール返信や問い合わせ対応に、毎日追われている</p></div>
+            <div class="problem-card"><div class="problem-emoji">😔</div><p class="problem-text">メール処理が苦手で、気づいたら<strong>3日後回し</strong>になっている</p></div>
             <div class="problem-card"><div class="problem-emoji">📅</div><p class="problem-text">日程調整や予約手配がめんどうで、本業に集中できない</p></div>
-            <div class="problem-card"><div class="problem-emoji">📄</div><p class="problem-text">資料づくりやデータ入力が、いつも山積みになっている</p></div>
+            <div class="problem-card"><div class="problem-emoji">📄</div><p class="problem-text">スタッフに任せると<strong>マニュアルがなく</strong>、質がバラバラになる</p></div>
             <div class="problem-card"><div class="problem-emoji">💸</div><p class="problem-text">正社員を雇うほどではないけど、人手はほしい</p></div>
             <div class="problem-card"><div class="problem-emoji">⚡</div><p class="problem-text">採用や教育に時間をかけず、すぐ動ける即戦力がほしい</p></div>
             <div class="problem-card"><div class="problem-emoji">🌙</div><p class="problem-text">夜や休日に事務作業していて、自分の時間がない</p></div>
@@ -596,8 +652,8 @@ body {
             </div>
             <div class="str-card">
                 <div class="str-no">STRENGTH 03</div>
-                <div class="str-title">AI活用でスピード＆低コスト</div>
-                <p class="str-desc">AI支援を組み合わせた効率的な業務設計で、人手だけに頼らない高速・低コストな運用を実現します。</p>
+                <div class="str-title">AI開発会社だから、最新クオリティ</div>
+                <p class="str-desc">AI開発会社LYNOXが運営するため、最新AIが業務に組み込み済みです。メールの下書き・議事録の文字起こし・資料整理をAI×人のハイブリッドで処理。対応速度とクオリティが根本的に違います。</p>
             </div>
             <div class="str-card">
                 <div class="str-no">STRENGTH 04</div>
@@ -608,7 +664,7 @@ body {
         <div class="lynox-note">
             <div class="ln-logo">LYNOX</div>
             <p class="ln-text">
-                Tascaは、コンサルティング・人材・AI支援・SNSマーケティングなど複数事業を展開する<strong>LYNOX</strong>が運営。グループ横断で培ったノウハウとAI技術を、あなたのバックオフィスにまるごとお届けします。
+                <strong>AI開発会社LYNOX合同会社</strong>が運営するオンライン秘書サービスです。AIと人のハイブリッド対応で最新クオリティを担保。コンサルティング・AI支援・SNSマーケティングなど多事業のノウハウを、あなたのバックオフィスにまるごとお届けします。
             </p>
         </div>
     </div>
@@ -665,7 +721,7 @@ body {
                     </tr>
                     <tr>
                         <td class="feat">月額コスト</td>
-                        <td class="tasca"><span class="cmp-o">◎</span> 3万円〜</td>
+                        <td class="tasca"><span class="cmp-o">◎</span> 4万円〜</td>
                         <td><span class="cmp-tri">△</span> 5万円前後〜が多い</td>
                         <td><span class="cmp-x">×</span> 給与＋社保／割高</td>
                     </tr>
@@ -678,7 +734,9 @@ body {
                 </tbody>
             </table>
         </div>
-        <p class="price-note">※ 上記は一般的なケースを比較した目安です。実際の条件はサービスや業務内容により異なります。</p>
+        
+					
+					<p class="price-note">※ 上記は一般的なケースを比較した目安です。実際の条件はサービスや業務内容により異なります。</p>
     </div>
 </section>
 
@@ -693,7 +751,7 @@ body {
         <div class="price-grid">
             <div class="price-card">
                 <div class="price-plan">LIGHT</div>
-                <div class="price-num"><sup>¥</sup>30,000<small>/月（税別）</small></div>
+                <div class="price-num"><sup>¥</sup>40,000<small>/月（税別）</small></div>
                 <div class="price-hours">月10時間まで</div>
                 <ul class="price-feats">
                     <li>メール・チャット対応</li>
@@ -706,7 +764,7 @@ body {
             <div class="price-card pop">
                 <div class="price-tag">人気No.1</div>
                 <div class="price-plan">STANDARD</div>
-                <div class="price-num"><sup>¥</sup>60,000<small>/月（税別）</small></div>
+                <div class="price-num"><sup>¥</sup>80,000<small>/月（税別）</small></div>
                 <div class="price-hours">月20時間まで</div>
                 <ul class="price-feats">
                     <li>LIGHTの全業務</li>
@@ -730,9 +788,22 @@ body {
                 </ul>
                 <a href="#contact" class="btn btn-yellow btn-full btn-sm" onclick="gtag('event','select_plan',{plan_name:'PREMIUM'});">このプランで相談</a>
             </div>
+                <div class="price-card">
+                    <div class="price-plan">EXECUTIVE</div>
+                    <div class="price-num"><sup>¥</sup>200,000<small>/月（税別）</small></div>
+                    <div class="price-hours">月50時間まで</div>
+                    <ul class="price-feats">
+                        <li>PREMIUMの全業務</li>
+                        <li>専任チームアサイン</li>
+                        <li>AI導入コンサル（月2回）</li>
+                        <li>業務フロー自動化設計</li>
+                        <li>土日・緊急対応</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-yellow btn-full btn-sm" onclick="gtag('event','select_plan',{plan_name:'EXECUTIVE'});">このプランで相談</a>
+                </div>
         </div>
         <p class="price-note">
-            ※ 超過分は1時間あたり3,500円（税別）で対応可能です。<br>
+            ※ 超過分は1時間あたり4,000円（税別）で対応可能です。<br>
             ※ ご要望に合わせたカスタムプランもご相談ください。
         </p>
     </div>
@@ -740,43 +811,94 @@ body {
 
 <!-- 特定商取引法に基づく表記（運営会社情報を統合）-->
 <section class="section company" id="tokushoho">
-    <div class="wrap">
-        <div class="section-head center">
-            <span class="eyebrow" style="background:var(--purple);">LEGAL</span>
-            <h2 class="section-title">特定商取引法に基づく表記</h2>
-            <p class="section-lead">継続課金・オンライン契約のサービスとして、法令で定められた事項を記載します。</p>
-        </div>
-        <div class="info-table">
-            <dl><dt>サービス名</dt><dd>Tasca（タスカ）／オンライン秘書サービス</dd></dl>
-            <dl><dt>販売事業者</dt><dd>LYNOX合同会社</dd></dl>
-            <dl><dt>運営統括責任者</dt><dd>北川　栞</dd></dl>
-            <dl><dt>所在地</dt><dd>東京都渋谷区道玄坂1-10-8 渋谷道玄坂東急ビル2F-C</dd></dl>
-            <dl><dt>電話番号</dt><dd>お問い合わせはメールにて承ります。お電話でのご連絡をご希望の場合は、下記メールアドレスまでご請求ください。請求後、遅滞なく書面または電子メールにて開示いたします。</dd></dl>
-            <dl><dt>メールアドレス</dt><dd><a href="mailto:info@lynox.co.jp" style="color:var(--purple);font-weight:800;text-decoration:underline;">info@lynox.co.jp</a></dd></dl>
-            <dl><dt>販売価格</dt><dd>LIGHT：月額30,000円／STANDARD：月額60,000円／PREMIUM：月額100,000円（いずれも税別）。詳細は料金プラン欄に表示します。</dd></dl>
-            <dl><dt>商品代金以外の必要料金</dt><dd>契約時間を超過した場合、1時間あたり3,500円（税別）を申し受けます。インターネット接続等の通信費はお客様のご負担となります。</dd></dl>
-            <dl><dt>お支払い方法</dt><dd>銀行振込、クレジットカード決済、請求書払いのいずれかをお選びいただけます。</dd></dl>
-            <dl><dt>お支払い時期</dt><dd>クレジットカードの場合は各カード会社所定の決済日に課金されます。銀行振込・請求書払いの場合は毎月末日締め、翌月15日までのお支払いとなります。</dd></dl>
-            <dl><dt>サービスの提供時期</dt><dd>お申し込み・お支払い手続きの完了後、最短1週間以内に業務を開始します。</dd></dl>
-            <dl><dt>契約期間・自動更新</dt><dd>契約期間は1ヶ月単位とし、解約のお申し出がない限り自動更新されます。</dd></dl>
-            <dl><dt>解約・返金について（返品特約）</dt><dd>本サービスは役務（サービス）の提供を目的とするため、提供開始後および月額料金お支払い後の返金・返品はお受けできません。解約をご希望の場合は、当月末日までにメールにてお申し出ください。当月末日をもって契約を終了し、翌月以降の料金は発生しません。当社の責めに帰すべき事由によりサービスが提供されなかった場合は、この限りではありません。</dd></dl>
-            <dl><dt>動作環境</dt><dd>インターネット接続環境、および電子メールの送受信が可能な環境が必要です。</dd></dl>
-        </div>
-        <p class="price-note">
-        
-        </p>
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow" style="background:var(--purple);">LEGAL</span>
+      <h2 class="section-title">特定商取引法に基づく<span class="mark">表記</span></h2>
+      <p class="section-lead">継続課金・オンライン契約のサービスとして、法令で定められた事項を記載します。</p>
     </div>
+
+    <div class="legal-group">
+      <div class="legal-group-title">🏢 事業者情報</div>
+      <div class="legal-card">
+        <div class="legal-row"><div class="legal-dt">サービス名</div><div class="legal-dd">Tasca（タスカ）／オンライン秘書サービス</div></div>
+        <div class="legal-row"><div class="legal-dt">販売事業者</div><div class="legal-dd">LYNOX合同会社</div></div>
+        <div class="legal-row"><div class="legal-dt">運営統括責任者</div><div class="legal-dd">北川 栞</div></div>
+        <div class="legal-row"><div class="legal-dt">所在地</div><div class="legal-dd">東京都渋谷区道玄坂1-10-8 渋谷道玄坂東急ビル2F-C</div></div>
+        <div class="legal-row"><div class="legal-dt">電話番号</div><div class="legal-dd">お問い合わせはメールにて承ります。お電話でのご連絡をご希望の場合は、下記メールアドレスまでご請求ください。ご請求後、遅滞なく電子メールにて開示いたします。</div></div>
+        <div class="legal-row"><div class="legal-dt">メールアドレス</div><div class="legal-dd"><a href="mailto:info@lynox.co.jp">info@lynox.co.jp</a></div></div>
+      </div>
+    </div>
+
+    <div class="legal-group">
+      <div class="legal-group-title">💳 料金・お支払い</div>
+      <div class="legal-card">
+        <div class="legal-row"><div class="legal-dt">販売価格</div><div class="legal-dd">LIGHT：月額40,000円 / STANDARD：月額80,000円 / PREMIUM：月額100,000円 / EXECUTIVE：月額200,000円（いずれも税別）。消費税（10%）が別途かかります。</div></div>
+        <div class="legal-row"><div class="legal-dt">追加料金</div><div class="legal-dd">契約時間を超過した場合、1時間あたり4,000円（税別）が発生します。インターネット接続等の通信費はお客様のご負担となります。</div></div>
+        <div class="legal-row"><div class="legal-dt">お支払い方法</div><div class="legal-dd">銀行振込、クレジットカード決済、請求書払いのいずれかをお選びいただけます。</div></div>
+        <div class="legal-row"><div class="legal-dt">お支払い時期</div><div class="legal-dd">クレジットカードは各カード会社所定の決済日。銀行振込・請求書払いは毎月末日締め、翌月15日までのお支払いとなります。</div></div>
+      </div>
+    </div>
+
+    <div class="legal-group">
+      <div class="legal-group-title">📋 契約・解約・返金</div>
+      <div class="legal-card">
+        <div class="legal-row"><div class="legal-dt">サービス開始</div><div class="legal-dd">お申し込み・お支払い完了後、最短1週間以内に業務を開始します。</div></div>
+        <div class="legal-row"><div class="legal-dt">契約期間</div><div class="legal-dd">1ヶ月単位の自動更新です。解約のお申し出がない限り自動継続されます。</div></div>
+        <div class="legal-row"><div class="legal-dt">解約方法</div><div class="legal-dd">当月末日までに <a href="mailto:info@lynox.co.jp">info@lynox.co.jp</a> へメールにてお申し出ください。翌月以降の料金は発生しません。</div></div>
+        <div class="legal-row"><div class="legal-dt">返金について</div><div class="legal-dd">サービス提供開始後・月額料金お支払い後の返金はお受けできません。当社の責めに帰すべき事由によりサービスが提供されなかった場合はこの限りではありません。</div></div>
+        <div class="legal-row"><div class="legal-dt">クーリングオフ</div><div class="legal-dd">本サービスは特定商取引法の「特定継続的役務提供」の指定役務に該当しないため、法定クーリングオフ制度は適用されません。ご不明点は消費者ホットライン（局番なし <strong>188</strong>）または各都道府県の消費生活センターにご相談いただけます。</div></div>
+      </div>
+    </div>
+
+    <div class="legal-group">
+      <div class="legal-group-title">⚙️ その他</div>
+      <div class="legal-card">
+        <div class="legal-row"><div class="legal-dt">動作環境</div><div class="legal-dd">インターネット接続環境、および電子メールの送受信が可能な環境が必要です。</div></div>
+        <div class="legal-row"><div class="legal-dt">秘密保持</div><div class="legal-dd">ご契約時に秘密保持契約（NDA）を締結します。業務内容・情報の第三者への開示は行いません。</div></div>
+        <div class="legal-row"><div class="legal-dt">紛争解決</div><div class="legal-dd">当社との協議で解決できない場合は、東京地方裁判所を第一審の専属的合意管轄裁判所とし、準拠法は日本法とします。</div></div>
+      </div>
+    </div>
+
+    <p class="price-note">最終更新：2026年8月</p>
+  </div>
 </section>
 
 <!-- お問い合わせ -->
+<!-- FAQ -->
+<section class="section" style="background:var(--cream);" id="faq">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow" style="background:var(--purple);">FAQ</span>
+      <h2 class="section-title">よくある<span class="mark">ご質問</span></h2>
+      <p class="section-lead">相談前に気になる疑問にまとめて答えます。</p>
+    </div>
+    <div class="faq-wrap">
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">AIを使うと品質が心配です<span class="faq-icon">+</span></button><p class="faq-a">TascaはAI単独ではなく「AI＋人のハイブリッド対応」です。AIが下書き・文字起こしを行い、担当スタッフが確認・調整してから納品します。AI開発会社LYNOXが運営しているため、精度管理のノウハウが蓄積されています。</p></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">業務の情報が外部に漏れませんか？<span class="faq-icon">+</span></button><p class="faq-a">ご契約時に秘密保持契約（NDA）を締結します。業務内容・情報は第三者に一切開示しません。不正アクセス・漏洩防止に努めています。</p></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">契約後いつから始めてもらえますか？<span class="faq-icon">+</span></button><p class="faq-a">お申し込み・お支払い完了後、最短1週間以内に業務を開始します。初回ヒアリングで業務内容を確認し、引き継ぎはこちらで整理するためお客様の準備負担は最小限です。</p></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">担当者が途中で変わることはありますか？<span class="faq-icon">+</span></button><p class="faq-a">PREMIUMプラン以上は専任担当者をアサインします。LIGHT・STANDARDはチーム対応となりますが、引き継ぎ情報はチーム内で共有されるため品質は維持されます。</p></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">月の時間を使い切れなかった場合は？<span class="faq-icon">+</span></button><p class="faq-a">未使用時間の翌月繰越はありません。ただし月途中でも超過対応（1時間4,000円・税別）が可能です。プラン変更は翌月からいつでも対応できます。</p></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">途中で解約できますか？<span class="faq-icon">+</span></button><p class="faq-a">最低契約期間は1ヶ月です。当月末日までにメールでお申し出いただければ翌月以降の料金は一切発生しません。まず1ヶ月試していただき、合わなければそこで終了できます。</p></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">何を頼めばいいかわからなくても相談できますか？<span class="faq-icon">+</span></button><p class="faq-a">むしろそういった方が多いです。無料相談では「今どんな業務に時間を取られているか」をヒアリングし、Tascaでできることをご提案します。</p></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">どんな業種でも対応できますか？<span class="faq-icon">+</span></button><p class="faq-a">はい。一人社長・フリーランスから数名規模のスタートアップまで業種を問わず対応しています。まずは無料相談でお気軽にどうぞ。</p></div>
+    </div>
+  </div>
+</section>
+
 <section class="section contact" id="contact">
     <div class="wrap">
         <div class="section-head center">
             <span class="strength-badge" style="background:var(--yellow);">CONTACT</span>
             <h2 class="section-title">まずは無料相談から</h2>
-            <p class="section-lead">お気軽にご相談ください。専任スタッフが2営業日以内にご連絡します。</p>
+            <p class="section-lead">まず話すだけでOK。強引な営業は一切しません。<br>専任スタッフが<strong style="color:var(--yellow)">1営業日以内</strong>にご連絡します。</p>
         </div>
-        <div class="form-box">
+        <div class="form-trust">
+  <div class="form-trust-item"><span class="ico">🔒</span>情報は第三者に提供しません</div>
+  <div class="form-trust-item"><span class="ico">🚫</span>強引な営業は一切なし</div>
+  <div class="form-trust-item"><span class="ico">⚡</span>1営業日以内に返信</div>
+</div>
+<div class="form-box">
             <form action="https://api.web3forms.com/submit" method="POST" onsubmit="gtag('event','generate_lead',{form_name:'contact_form'});">
     <input type="hidden" name="access_key" value="38ab262d-ad45-4a91-a578-b9438bef9e7d">
     <input type="hidden" name="subject" value="【Tasca】新規お問い合わせ">
@@ -784,31 +906,32 @@ body {
     <input type="hidden" name="redirect" value="https://tasca-lp.vercel.app/thanks.html">
                 <div class="f-row">
                     <div class="f-group">
-                        <label class="f-label">お名前<span class="req">必須</span></label>
+                        <label class="f-label">お名前<span class="form-required">必須</span></label>
                         <input type="text" name="name" class="f-input" placeholder="山田 太郎" required>
                     </div>
                     <div class="f-group">
-                        <label class="f-label">会社名</label>
+                        <label class="f-label">会社名<span class="form-optional">任意</span></label>
                         <input type="text" name="company" class="f-input" placeholder="株式会社〇〇">
                     </div>
                 </div>
                 <div class="f-row">
                     <div class="f-group">
-                        <label class="f-label">メールアドレス<span class="req">必須</span></label>
+                        <label class="f-label">メールアドレス<span class="form-required">必須</span></label>
                         <input type="email" name="email" class="f-input" placeholder="example@company.com" required>
                     </div>
                     <div class="f-group">
                         <label class="f-label">電話番号</label>
-                        <input type="tel" name="phone" class="f-input" placeholder="090-0000-0000">
+                        <input type="tel" name="phone" class="f-input" placeholder="090-0000-0000" required>
                     </div>
                 </div>
                 <div class="f-group">
                     <label class="f-label">ご興味のあるプラン</label>
                     <select name="plan" class="f-select">
                         <option value="">選択してください</option>
-                        <option>LIGHT（月10時間 / ¥30,000〜）</option>
-                        <option>STANDARD（月20時間 / ¥60,000〜）</option>
+                        <option>LIGHT（月10時間 / ¥40,000〜）</option>
+                        <option>STANDARD（月20時間 / ¥80,000〜）</option>
                         <option>PREMIUM（月40時間 / ¥100,000〜）</option>
+                        <option>EXECUTIVE（月50時間 / ¥200,000〜）</option>
                         <option>カスタムプランを相談したい</option>
                     </select>
                 </div>
@@ -818,7 +941,7 @@ body {
                 </div>
                 <p class="f-note" style="margin-bottom:18px;">
                     送信いただいた情報は、サービスのご案内以外には使用しません。<br>
-                    <a href="#">プライバシーポリシー</a>に同意の上、送信してください。
+                    <a href="/privacy_policy.html" target="_blank">プライバシーポリシー</a>に同意の上、送信してください。
                 </p>
                 <button type="submit" class="btn btn-coral btn-full">送信する →</button>
             </form>
@@ -840,5 +963,27 @@ body {
     <p class="footer-copy">© 2026 Tasca by LYNOX LLC. All rights reserved.</p>
 </footer>
 
+
+<!-- スティッキーCTA（スマホのみ表示） -->
+<div class="sticky-cta" id="stickyCta">
+  <a href="#contact">無料相談を予約する →</a>
+</div>
+
+<script>
+// FAQアコーディオン
+function toggleFaq(btn){
+  var item = btn.closest('.faq-item');
+  item.classList.toggle('open');
+}
+// スティッキーCTAをcontactセクション到達時に非表示
+var sticky = document.getElementById('stickyCta');
+var contactEl = document.getElementById('contact');
+if(sticky && contactEl){
+  window.addEventListener('scroll', function(){
+    var rect = contactEl.getBoundingClientRect();
+    sticky.style.display = rect.top < window.innerHeight ? 'none' : '';
+  });
+}
+</script>
 </body>
 </html>
